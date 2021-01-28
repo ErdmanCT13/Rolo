@@ -2,6 +2,7 @@
     padding: 0px;
     margin: 0px;
     font-family: 'Roboto', sans-serif;
+    outline: none;
 }
 html{
     height: 100vh;
@@ -19,25 +20,128 @@ body{
     border-width: 0 0 1px 0;
     border-style: solid;
     border-color: hsl(0, 0%, 90%);
+    display: flex;
+    align-items: center;
+}
+.app-logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    font-family: 'Pacifico', cursive;
+    font-size: 30px;
+}
+.calendar-controls{
+    height: 40px;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: hsl(0, 0%, 95%);
+    border-radius: 5px;
+    margin-right: 10px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: hsl(0, 0%, 90%);
+}
+.calendar-controls__button{
+    height: 30px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: hsl(0, 0%, 80%);
+    border-radius: 5px;
+    margin-right: 5px;
+}
+.calendar-controls__button--calendar-filter{
+
+}
+.calendar-controls__button--list-toggle{
+
+}
+.calendar-controls__button--calendar-filter div{
+    height: 30px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: black;
+    -webkit-mask: url("../images/filter_alt-24px.svg") no-repeat center;
+    -webkit-mask-size: 20px 20px;
+}
+.calendar-search div{
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: black;
+    -webkit-mask: url("../images/search-24px.svg") no-repeat center;
+    -webkit-mask-size: 20px 20px;
+}
+.calendar-search{
+    flex: 1;
+    display: flex;
+}
+.calendar-search input{
+    border-width: 0 0 0 1px;
+    border-color: hsl(0, 0%, 90%);
+    border-style: solid;
+    font-size: 14px;
+    padding: 3px 10px;
+    box-sizing: border-box;
+    height: 40px;
+    flex: 1;
+    background: none;
+}
+.calendar-controls__button--list-toggle div{
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: black;
+    -webkit-mask: url("../images/list-24px.svg") no-repeat center;
+    -webkit-mask-size: 20px 20px;
 }
 .month-picker{
-    height: 100%;
-    width: fit-content;
+    height: 40px;
+    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight: 600;
-    font-size: 30px;
+    display: none;
+    font-size: 18px;
 }
 .month-picker__month{
-    margin-right: 20px;
+    height: 100%;
+    width: 100px;
+    background: hsl(36, 100%, 50%);
+    background: hsl(0, 0%, 95%);
+    margin-right: 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .month-picker__year{
+    height: 100%;
+    width: 100px;
+    background: hsl(36, 100%, 50%);
+    background: hsl(0, 0%, 95%);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
 }
 .calendar-overflow{
     overflow: auto;
     flex: 1;
+    height: calc(100% - 70px);
 }
 .calendar{
     display: grid;
@@ -45,7 +149,7 @@ body{
 }
 .calendar > div{
     padding: 10px;
-    box-sizing:border-box;
+    box-sizing: border-box;
     height: 200px;
     width: 100%;
     border-width: 0 1px 1px 0;
@@ -53,11 +157,21 @@ body{
     border-color: hsl(0, 0%, 90%);
 }
 .calendar .calendar-day-header{
+    background: hsl(0, 0%, 98%);
+    height: 50px;
+    display: flex;
+    align-items: center;
 }
 .calendar .calendar-day{
     overflow-y: auto;
     display: flex;
     flex-direction: column;
+    transition: all .3s ease-in-out;
+    cursor: pointer;
+}
+.calendar .calendar-day:hover{
+    background: hsl(0, 0%, 75%);
+    color: hsl(0, 0%, 99%);
 }
 .calendar-day__event{
     font-size: 12px;
@@ -69,8 +183,23 @@ body{
     padding: 3px 5px;
     border-radius: 5px;
 }
+.calendar-day__event:nth-child(5n - 4){
+    background:hsl(150, 100%, 40%);
+}
+.calendar-day__event:nth-child(5n - 3){
+    background:hsl(330, 100%, 60%);
+}
+.calendar-day__event:nth-child(5n - 2){
+    background: hsl(24, 100%, 50%);
+}
+.calendar-day__event:nth-child(5n - 1){
+    background: hsl(340, 100%, 30%);
+}
+.calendar-day__event:nth-child(5n - 0){
+    background: hsl(240, 100%, 60%);
+}
 .app-controls{
-    height: 100%;
+    height: calc(100% - 70px);
     width: 70px;
     border-width: 0 1px 0 0;
     border-style: solid;
