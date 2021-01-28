@@ -1,0 +1,110 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Roboto', sans-serif;
+}
+html{
+    height: 100vh;
+    width: 100vw;
+}
+body{
+    display: flex;
+    flex-wrap: wrap;
+    height: 100vh;
+    width: 100vw;
+}
+.app-header{
+    height: 70px;
+    width: 100%;
+    border-width: 0 0 1px 0;
+    border-style: solid;
+    border-color: hsl(0, 0%, 90%);
+}
+.month-picker{
+    height: 100%;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 30px;
+}
+.month-picker__month{
+    margin-right: 20px;
+}
+.month-picker__year{
+
+}
+.calendar-overflow{
+    overflow: auto;
+    flex: 1;
+}
+.calendar{
+    display: grid;
+    grid-template-columns: repeat(7, calc(100% / 7));
+}
+.calendar > div{
+    padding: 10px;
+    box-sizing:border-box;
+    height: 200px;
+    width: 100%;
+    border-width: 0 1px 1px 0;
+    border-style: solid;
+    border-color: hsl(0, 0%, 90%);
+}
+.calendar .calendar-day-header{
+}
+.calendar .calendar-day{
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+.calendar-day__event{
+    font-size: 12px;
+    background: orange;
+    color: white;
+    margin-top: 5px;
+    height: fit-content;
+    width: fit-content;
+    padding: 3px 5px;
+    border-radius: 5px;
+}
+.app-controls{
+    height: 100%;
+    width: 70px;
+    border-width: 0 1px 0 0;
+    border-style: solid;
+    border-color: hsl(0, 0%, 90%);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.app-controls__button{
+    height: 50px;
+    width: 50px;
+    margin-top: 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.app-controls__button--import{
+    background: black;
+    -webkit-mask: url("../images/import_export-24px.svg") no-repeat center;
+    -webkit-mask-size: 30px 30px;
+}
+.app-controls__button--friends{
+    background: black;
+    -webkit-mask: url("../images/supervisor_account-24px.svg") no-repeat center;
+    -webkit-mask-size: 30px 30px;
+}
+.app-controls__button--calendar{
+    background: black;
+    -webkit-mask: url("../images/calendar_today-24px\ \(1\).svg") no-repeat center;
+    -webkit-mask-size: 30px 30px;
+}
+.app-controls__button--settings{
+    background: black;
+    -webkit-mask: url("../images/settings-24px\ \(1\).svg") no-repeat center;
+    -webkit-mask-size: 30px 30px;
+}
