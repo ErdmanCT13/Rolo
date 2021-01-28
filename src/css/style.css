@@ -7,12 +7,19 @@
 html{
     height: 100vh;
     width: 100vw;
+    overflow: hidden;
 }
 body{
     display: flex;
     flex-wrap: wrap;
     height: 100vh;
     width: 100vw;
+}
+.section{
+    height: calc(100% - 70px);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 .app-header{
     height: 70px;
@@ -22,6 +29,7 @@ body{
     border-color: hsl(0, 0%, 90%);
     display: flex;
     align-items: center;
+    box-sizing: border-box;
 }
 .app-logo{
     display: flex;
@@ -106,42 +114,145 @@ body{
     -webkit-mask: url("../images/list-24px.svg") no-repeat center;
     -webkit-mask-size: 20px 20px;
 }
-.month-picker{
-    height: 40px;
-    color: white;
+.calendar-header{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: 600;
-    display: none;
-    font-size: 18px;
+    border-width: 0 0 1px 0;
+    border-style: solid;
+    border-color: hsl(0, 0%, 90%);
 }
-.month-picker__month{
-    height: 100%;
-    width: 100px;
-    background: hsl(36, 100%, 50%);
-    background: hsl(0, 0%, 95%);
-    margin-right: 10px;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.month-picker__year{
-    height: 100%;
-    width: 100px;
-    background: hsl(36, 100%, 50%);
-    background: hsl(0, 0%, 95%);
-    border-radius: 5px;
+.date-picker{
+    height: 70px;
+    width: 20%;
     display: flex;
     align-items: center;
     justify-content: center;
 
 }
+.date-picker__month{
+    margin-right: 10px;
+}
+.date-picker__year{
+}
+.calendar-statistics{
+    display: flex;
+    flex: 2;
+}
+.calendar-statistics__stat{
+    padding: 0 10px;
+    box-sizing: border-box;
+    border-width: 0 0 0 1px;
+    border-style: solid;
+    border-color: hsl(0, 0%, 90%);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    flex-grow: 1;
+}
+/* <div class="calendar-statistics__stat calendar-statistics__stat--events-scheduled">Events Scheduled</div>
+<div class="calendar-statistics__stat calendar-statistics__stat--free-time">Free Time</div>
+<div class="calendar-statistics__stat calendar-statistics__stat--deadlines">Deadlines</div>
+<div class="calendar-statistics__stat calendar-statistics__stat--committed-time">Time committed Per week</div> */
+.calendar-statistics__stat--events-scheduled::before{
+    content: "Events Scheduled";
+    font-size: 12px;
+}
+.calendar-statistics__stat--free-time::before{
+    content: "Free Time";
+    font-size: 12px;
+}
+.calendar-statistics__stat--deadlines::before{
+    content: "Deadlines";
+    font-size: 12px;
+}
+.calendar-statistics__stat--committed-time::before{
+    content: "Time Committed";
+    font-size: 12px;
+}
+.upcoming-events{
+    box-sizing: border-box;
+    border-width: 1px 0 0 0;
+    border-style: solid;
+    border-color: hsl(0, 0%, 90%);
+    height: 180px;
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.upcoming-events__todays-date{
+    height: fit-content;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+/*                 <div class="upcoming-events__list-item">
+                    <div class="upcoming-event-name">Event1</div>
+                    <div class="upcoming-event-description">
+                        This is a description of the event
+                    </div>
+                    <div class="upcoming-event-time">Tomorrow, 8:00 AM - 9:45 PM</div>
+                    <div class="upcoming-event-location"></div>
+                    <div class="upcoming-event-type"></div>
+                    <div class="upcoming-event-invitees"></div>
+                </div> */
+.upcoming-events__list{
+    display: flex;
+    flex: 1;
+}
+.upcoming-events__list-item{
+    border-radius: 5px;
+    width: fit-content;
+    height: 100%;
+    background: orange;
+    margin-right: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+    color: white;
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+}
+.upcoming-event-name{
+    font-size: 14px;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+.upcoming-event-description{
+    flex: 1;
+}
+.upcoming-event-location{
+    display: flex;
+    margin-bottom: 5px;
+}
+.upcoming-event-location::before{
+    content: "";
+    height: 12px;
+    width: 12px;
+    background: white;
+    -webkit-mask: url("../images/navigation-24px.svg") no-repeat center;
+    -webkit-mask-size: 12px 12px;
+    margin-right: 5px;
+}
+.upcoming-events__list-item:nth-child(5n - 4){
+    background:hsl(150, 100%, 40%);
+}
+.upcoming-events__list-item:nth-child(5n - 3){
+    background:hsl(330, 100%, 60%);
+}
+.upcoming-events__list-item:nth-child(5n - 2){
+    background: hsl(24, 100%, 50%);
+}
+.upcoming-events__list-item:nth-child(5n - 1){
+    background: hsl(340, 100%, 30%);
+}
+.upcoming-events__list-item:nth-child(5n - 0){
+    background: hsl(240, 100%, 60%);
+}
 .calendar-overflow{
     overflow: auto;
     flex: 1;
-    height: calc(100% - 70px);
+    width: 100%;
 }
 .calendar{
     display: grid;
