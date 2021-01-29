@@ -115,27 +115,102 @@ body{
     -webkit-mask-size: 20px 20px;
 }
 .calendar-header{
+    height: 70px;
     display: flex;
-    border-width: 0 0 1px 0;
+    border-width: 1px 0 1px 0;
+    border-style: solid;
+    border-color: hsl(0, 0%, 90%);
+    align-items: center;
+    box-sizing: border-box;
+    box-shadow: 0 10px 6px -2px rgba(0,0,0,0.16);
+    
+}
+.date-picker{
+    height: 100%;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: hsl(0, 0%, 98%);
+}
+.date-picker__month{
+    font-weight: 600;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-width: 0 1px 0 0;
     border-style: solid;
     border-color: hsl(0, 0%, 90%);
 }
-.date-picker{
-    height: 70px;
-    width: 20%;
+.date-picker__month > div{
+    height: 30px;
+    width: 60px;
+    border-width: 1px;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: hsl(0, 0%, 90%);
+    background: hsl(0, 0%, 95%);
     display: flex;
     align-items: center;
     justify-content: center;
-
+    margin: 0 15px;
 }
-.date-picker__month{
-    margin-right: 10px;
+.date-picker__month div:nth-child(1) > div{
+    height: 30px;
+    width: 30px;
+    background: black;
+    -webkit-mask: url("../images/keyboard_arrow_left-24px.svg") no-repeat center;
+    -webkit-mask-size: 30px 30px;
+}
+.date-picker__month div:nth-child(2) > div{
+    height: 30px;
+    width: 30px;
+    background: black;
+    -webkit-mask: url("../images/keyboard_arrow_right-24px.svg") no-repeat center;
+    -webkit-mask-size: 30px 30px;
 }
 .date-picker__year{
+    font-weight: 600;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.date-picker__year > div{
+    height: 30px;
+    width: 60px;
+    border-width: 1px;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: hsl(0, 0%, 90%);
+    background: hsl(0, 0%, 95%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 15px;
+}
+.date-picker__year div:nth-child(1) > div{
+    height: 30px;
+    width: 30px;
+    background: black;
+    -webkit-mask: url("../images/keyboard_arrow_left-24px.svg") no-repeat center;
+    -webkit-mask-size: 30px 30px;
+}
+.date-picker__year div:nth-child(2) > div{
+    height: 30px;
+    width: 30px;
+    background: black;
+    -webkit-mask: url("../images/keyboard_arrow_right-24px.svg") no-repeat center;
+    -webkit-mask-size: 30px 30px;
 }
 .calendar-statistics{
+    border-width: 1px 0 0 0;
+    border-style: solid;
+    border-color: hsl(0, 0%, 90%);
     display: flex;
-    flex: 2;
+    height: 70px;
+    background: hsl(0, 0%, 98%);
 }
 .calendar-statistics__stat{
     padding: 0 10px;
@@ -144,10 +219,11 @@ body{
     border-style: solid;
     border-color: hsl(0, 0%, 90%);
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
     flex-direction: column;
     flex-grow: 1;
+    font-size: 14px;
 }
 /* <div class="calendar-statistics__stat calendar-statistics__stat--events-scheduled">Events Scheduled</div>
 <div class="calendar-statistics__stat calendar-statistics__stat--free-time">Free Time</div>
@@ -171,9 +247,9 @@ body{
 }
 .upcoming-events{
     box-sizing: border-box;
-    border-width: 1px 0 0 0;
+    /* border-width: 1px 0 0 0;
     border-style: solid;
-    border-color: hsl(0, 0%, 90%);
+    border-color: hsl(0, 0%, 90%); */
     height: 180px;
     width: 100%;
     padding: 10px;
@@ -181,6 +257,8 @@ body{
     flex-direction: column;
 }
 .upcoming-events__todays-date{
+    font-weight: 600;
+    font-size: 24px;
     height: fit-content;
     margin-bottom: 10px;
     display: flex;
@@ -217,9 +295,11 @@ body{
     font-size: 14px;
     margin-bottom: 5px;
     font-weight: 600;
+    flex: 1;
 }
 .upcoming-event-description{
     flex: 1;
+    display: none;
 }
 .upcoming-event-location{
     display: flex;
